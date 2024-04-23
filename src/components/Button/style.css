@@ -1,0 +1,13 @@
+.button {
+    padding: 20px 54px 20px 54px;
+    background: #1F27F5;
+    border-radius: 4px;
+    color: #FFFFFF;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 1;
+    &:active {
+        opacity: 0.7;
+    }
+}
