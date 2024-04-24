@@ -1,5 +1,5 @@
-import "./style.css";
-import Input from "../Input/Input";
+import "components/LoginForm/style.css";
+import Input from "components/Input/Input";
 import Button from "components/Button/Button";
 
 function LoginForm() {

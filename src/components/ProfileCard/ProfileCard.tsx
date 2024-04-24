@@ -1,8 +1,8 @@
-import "./style.css";
-import {UserProps} from "./types";
+import "components/ProfileCard/style.css";
+import {IUserProps} from "components/ProfileCard/types";
 
 function ProfileCard() {
-    const userData :UserProps = {
+    const userData :IUserProps = {
         avatar:
             "https://img.freepik.com/premium-vector/men-women-different-poses-sitting-standing-isolated-white-background-cute-flat-style-vector-illustration_71599-9116.jpg?w=740",
         userName: "John Doe",

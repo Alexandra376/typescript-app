@@ -1,4 +1,4 @@
-export interface UserProps {
+export interface IUserProps {
     avatar: string;
     userName: string;
     profession: string;

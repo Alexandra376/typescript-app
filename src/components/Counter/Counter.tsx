@@ -1,7 +1,9 @@
-import "./style.css";
-import Button from "../Button/Button";
+import "components/Counter/style.css";
+import Button from "components/Button/Button";
+import "components/Counter/types";
+import {ICounterProps} from "components/Counter/types";
 
-function Counter({onMinusClick, countValue, onPlusClick} :any) {
+function Counter({onMinusClick, countValue, onPlusClick} : ICounterProps) {
     return (
         <div className="counter-wrapper">
             <div className="button-control">
