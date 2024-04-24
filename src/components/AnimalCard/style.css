@@ -1,0 +1,16 @@
+.animal-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 300px;
+    height: 300px;
+    padding: 20px;
+    background-color: lightgray;
+    border-radius: 10px;
+}
+
+.animal-card img {
+    width: 200px;
+    height: 200px;
+}
