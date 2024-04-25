@@ -1,5 +1,5 @@
-import "./style.css";
-import {UserProps} from "./types";
+import "components/ProfileCard/style.css";
+import {UserProps} from "components/ProfileCard/types";
 
 function ProfileCard() {
     const userData :UserProps = {

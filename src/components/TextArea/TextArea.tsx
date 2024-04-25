@@ -1,7 +1,7 @@
-import "./style.css";
-import {TextAreaProps} from "./types";
+import "components/TextArea/style.css";
+import {TextAreaProps} from "components/TextArea/types";
 
-function TextArea({placeholder, name, label} :TextAreaProps) {
+function TextArea({placeholder, name, label} :ITextAreaProps) {
     return (
         <div className="text-area-container">
             <label>{label}</label>

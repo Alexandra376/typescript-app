@@ -1,4 +1,4 @@
-import "./style.css";
+import "lessons/Lesson_07/style.css";
 import {useState} from "react";
 import Counter from "components/Counter/Counter";
 

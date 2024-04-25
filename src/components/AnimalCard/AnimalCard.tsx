@@ -1,5 +1,6 @@
-import "./style.css";
-import {AnimalCardProps} from "./types";
+import "components/AnimalCard/style.css";
+import {AnimalCardProps} from "components/AnimalCard/types";
+
 function AnimalCard({animalData} :AnimalCardProps) {
     return(
         <div className="animal-card">
