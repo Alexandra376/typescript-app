@@ -1,4 +1,4 @@
-import "components/LoginForm/style.css";
+import "./style.css";
 import Input from "components/Input/Input";
 import Button from "components/Button/Button";
 

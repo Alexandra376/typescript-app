@@ -1,6 +1,6 @@
-import "components/Feedback/style.css";
+import "./style.css";
 import Button from "components/Button/Button";
-import {FeedbackProps} from "components/Feedback/types";
+import {FeedbackProps} from "./types";
 
 function Feedback({countLike, countDislike, clickOnAddLike, clickOnAddDislike, clickOnResetResults} :FeedbackProps) {
     return (

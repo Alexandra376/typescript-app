@@ -1,6 +1,6 @@
-import "components/Counter/style.css";
+import "./style.css";
 import Button from "components/Button/Button";
-import "components/Counter/types";
+import "./types";
 import {CounterProps} from "components/Counter/types";
 
 function Counter({onMinusClick, countValue, onPlusClick} : CounterProps) {

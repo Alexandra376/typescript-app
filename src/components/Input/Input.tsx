@@ -1,5 +1,5 @@
-import "components/Input/style.css";
-import {InputProps } from "components/Input/types";
+import "./style.css";
+import {InputProps } from "./types";
 
 function Input({ name, type = "text", placeholder, label, onInputChange } :InputProps) {
     return (
