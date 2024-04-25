@@ -1,4 +1,4 @@
-export interface ITextAreaProps {
+export interface TextAreaProps {
     placeholder: string;
     name: string;
     label: string;

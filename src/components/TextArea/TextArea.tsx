@@ -1,5 +1,5 @@
 import "components/TextArea/style.css";
-import {ITextAreaProps} from "components/TextArea/types";
+import {TextAreaProps} from "components/TextArea/types";
 
 function TextArea({placeholder, name, label} :ITextAreaProps) {
     return (

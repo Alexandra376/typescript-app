@@ -1,8 +1,8 @@
 import "components/Feedback/style.css";
 import Button from "components/Button/Button";
-import {IFeedbackProps} from "components/Feedback/types";
+import {FeedbackProps} from "components/Feedback/types";
 
-function Feedback({countLike, countDislike, clickOnAddLike, clickOnAddDislike, clickOnResetResults} :IFeedbackProps) {
+function Feedback({countLike, countDislike, clickOnAddLike, clickOnAddDislike, clickOnResetResults} :FeedbackProps) {
     return (
         <div className="feedback-container">
             <div className="feedback-result-container">

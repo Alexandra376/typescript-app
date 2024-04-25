@@ -1,4 +1,4 @@
-export interface IFeedbackProps {
+export interface FeedbackProps {
     countLike: number;
     countDislike: number
     clickOnAddLike: () => void;
