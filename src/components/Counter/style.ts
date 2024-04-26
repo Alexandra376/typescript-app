@@ -12,7 +12,7 @@ export const ButtonControlStyle = styled.div`
     width: 100px;
 `
 
-export const ParagraphStyle = styled.div`
+export const ParagraphStyle = styled.p`
     font-size: 32px;
     font-weight: bold;
 `

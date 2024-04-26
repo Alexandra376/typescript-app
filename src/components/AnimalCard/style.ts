@@ -14,7 +14,7 @@ export const AnimalCardStyle = styled.div`
 
 export const AnimalCardTitleStyle = styled.h2``
 
-export const AnimalCardParagraphStyle = styled.h2``
+export const AnimalCardParagraphStyle = styled.p``
 
 export const AnimalCardImgStyle = styled.img`
     width: 200px;
