@@ -1,13 +1,13 @@
-import "./style.css";
 import {AnimalCardProps} from "./types";
+import {AnimalCardStyle, AnimalCardTitleStyle, AnimalCardParagraphStyle, AnimalCardImgStyle} from "./style";
 
 function AnimalCard({animalData} :AnimalCardProps) {
     return(
-        <div className="animal-card">
-            <h2>{animalData.name}</h2>
-            <p>{animalData.species}</p>
-            <img src={animalData.image} alt="animal"/>
-        </div>
+        <AnimalCardStyle>
+            <AnimalCardTitleStyle>{animalData.name}</AnimalCardTitleStyle>
+            <AnimalCardParagraphStyle>{animalData.species}</AnimalCardParagraphStyle>
+            <AnimalCardImgStyle src={animalData.image} alt="animal"/>
+        </AnimalCardStyle>
     )
 }
 

@@ -1,5 +1,6 @@
 import "./style.css";
 import {UserProps} from "./types";
+import {ProfileCardContainerStyle, ProfileImageStyle, ParagraphStyle, ProfileTitleStyle, PropertyName} from "./style";
 
 function ProfileCard() {
     const userData :UserProps = {
@@ -11,16 +12,16 @@ function ProfileCard() {
     };
 
     return (
-        <div className="profile-card-wrapper">
-            <img src={userData.avatar} alt="avatar"/>
-            <h3>{userData.userName}</h3>
-            <p>
-                <span className="property-name">Profession:</span> {userData.profession}
-            </p>
-            <p>
-                <span className="property-name">Hobby:</span> {userData.hobbies[0]}
-            </p>
-        </div>
+        <ProfileCardContainerStyle>
+            <ProfileImageStyle src={userData.avatar} alt="avatar"/>
+            <ProfileTitleStyle>{userData.userName}</ProfileTitleStyle>
+            <ParagraphStyle>
+                <PropertyName>Profession:</PropertyName> {userData.profession}
+            </ParagraphStyle>
+            <ParagraphStyle>
+                <PropertyName>Hobby:</PropertyName> {userData.hobbies[0]}
+            </ParagraphStyle>
+        </ProfileCardContainerStyle>
     );
 }
 

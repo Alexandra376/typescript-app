@@ -1,4 +1,6 @@
-.profile-card-wrapper {
+import styled from "@emotion/styled";
+
+export const ProfileCardContainerStyle = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,17 +11,18 @@
     background: rgb(187, 212, 210);
     border: 2px solid rgb(24, 55, 62);
     font-size: 20px;
-}
+`
 
-.profile-card-wrapper > img {
+export const ProfileImageStyle = styled.img`
     width: 100px;
-}
+`
 
-.property-name {
+export const ProfileTitleStyle = styled.h3`
+    font-size: 28px;
+`
+export const ParagraphStyle = styled.p``
+
+export const PropertyName = styled.span`
     font-weight: bold;
     font-size: 24px;
-}
-
-.profile-card-wrapper > h3 {
-    font-size: 28px;
-}
+`

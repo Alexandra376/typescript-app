@@ -1,12 +1,13 @@
 import "./style.css";
 import {TextAreaProps} from "./types";
+import {LabelStyle, TextAreaContainerStyle, TextareaStyle} from "./style";
 
 function TextArea({placeholder, name, label} :TextAreaProps) {
     return (
-        <div className="text-area-container">
-            <label>{label}</label>
-            <textarea placeholder={placeholder} name={name}></textarea>
-        </div>
+        <TextAreaContainerStyle>
+            <LabelStyle>{label}</LabelStyle>
+            <TextareaStyle placeholder={placeholder} name={name}></TextareaStyle>
+        </TextAreaContainerStyle>
     )
 }
 
