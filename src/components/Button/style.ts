@@ -1,4 +1,6 @@
-.button-component {
+import styled from "@emotion/styled";
+
+export const ButtonStyle = styled.button`
     width: 100%;
     height: 70px;
     outline: none;
@@ -9,4 +11,4 @@
     color: white;
     font-size: 16px;
     cursor: pointer;
-}
+`

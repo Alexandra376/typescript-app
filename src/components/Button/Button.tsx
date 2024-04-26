@@ -1,11 +1,12 @@
 import "./style.css";
 import { ButtonProps } from './types'
+import {ButtonStyle} from './style';
 
 function Button({ name, type = "button", onButtonClick }: ButtonProps) {
     return (
-        <button className="button-component" type={type} onClick={onButtonClick}>
+        <ButtonStyle type={type} onClick={onButtonClick}>
             {name}
-        </button>
+        </ButtonStyle>
     );
 }
 

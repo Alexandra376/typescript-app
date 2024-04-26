@@ -1,4 +1,6 @@
-.animal-card {
+import styled from "@emotion/styled";
+
+export const AnimalCardStyle = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,9 +10,13 @@
     padding: 20px;
     background-color: lightgray;
     border-radius: 10px;
-}
+`
 
-.animal-card img {
+export const AnimalCardTitleStyle = styled.h2``
+
+export const AnimalCardParagraphStyle = styled.h2``
+
+export const AnimalCardImgStyle = styled.img`
     width: 200px;
     height: 200px;
-}
+`
