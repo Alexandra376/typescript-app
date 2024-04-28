@@ -1,9 +1,9 @@
 import { ButtonProps } from './types'
 import {ButtonStyle} from './style';
 
-function Button({ name, type = "button", onButtonClick, disabled=false}: ButtonProps) {
+function Button({ name, type = "button", disabled=false, handlerButton}: ButtonProps) {
     return (
-        <ButtonStyle disabled={disabled} type={type} onClick={onButtonClick}>
+        <ButtonStyle disabled={disabled} type={type} onClick={handlerButton}>
             {name}
         </ButtonStyle>
     );

@@ -8,11 +8,11 @@ function Counter({onMinusClick, countValue, onPlusClick} : CounterProps) {
     return (
         <CounterWrapperStyle>
             <ButtonControlStyle>
-                <Button onButtonClick={onMinusClick} name="-" />
+                <Button handlerButton={onMinusClick} name="-" />
             </ButtonControlStyle>
             <ParagraphStyle>{countValue}</ParagraphStyle>
             <ButtonControlStyle>
-                <Button onButtonClick={onPlusClick} name="+" />
+                <Button handlerButton={onPlusClick} name="+" />
             </ButtonControlStyle>
         </CounterWrapperStyle>
     );
