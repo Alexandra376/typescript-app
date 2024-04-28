@@ -18,8 +18,6 @@ function Homework_09() {
 
     const handlerInputValue = (event: ChangeEvent<HTMLInputElement>) :void => {
         setInputValue(event.target.value)
-        console.log(event.target.name)
-        console.log(event.target.value)
     }
 
     const handlerInputValueSecond = (event: ChangeEvent<HTMLInputElement>) :void => {
