@@ -4,8 +4,8 @@
 // import Lesson_08 from "./lessons/Lesson_08/Lesson_08";
 import GlobalStyles from "styles/GlobalStyles";
 import React from "react";
-import Homework_09 from "./homeworks/Homework_09/Homework_09";
-// import Lesson_09 from "lessons/Lesson_09/Lesson_09";
+// import Homework_09 from "./homeworks/Homework_09/Homework_09";
+import Lesson_09 from "lessons/Lesson_09/Lesson_09";
 
 function App() {
   return (
@@ -16,8 +16,8 @@ function App() {
           {/*<Homework07/>*/}
           {/*<Lesson_08/>*/}
           {/* eslint-disable-next-line react/jsx-pascal-case */}
-          {/*<Lesson_09/>*/}
-          <Homework_09/>
+          <Lesson_09/>
+          {/*<Homework_09/>*/}
       </>
   )
 }
