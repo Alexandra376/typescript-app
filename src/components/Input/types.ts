@@ -6,4 +6,5 @@ export interface InputProps {
     placeholder: string;
     label: string;
     getValue?: (event: ChangeEvent<HTMLInputElement>) => void;
+    value: string;
 }

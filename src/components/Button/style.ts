@@ -11,7 +11,8 @@ export const ButtonStyle = styled.button<ButtonProps>`
     border: none;
     border-radius: 4px;
     padding: 20px;
-    background: ${({disabled}) => disabled ? '#1f2f56' : "#1f27f5"};
+    background: #1f27f5;
+    opacity: ${({disabled}) => disabled ? 0.7 : 1};
     color: white;
     font-size: 16px;
     cursor: pointer;

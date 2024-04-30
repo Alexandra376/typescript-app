@@ -32,13 +32,16 @@ function Homework_09() {
                            type = 'email'
                            placeholder='Email'
                            label='Click me'
+                           value={info}
                            getValue={handlerInputValue} />
                     <InformationOutputStyle>{info}</InformationOutputStyle>
                     <Input name='password'
                            type = 'password'
                            placeholder='Password'
                            label='Click me'
+                           value={info2}
                            getValue={handlerInputValueSecond}/>
+
                     <InformationOutputStyle>{info2}</InformationOutputStyle>
                 </Homework09InputContainer>
                 <Button type='button' name='Print' handlerButton={() :void => {

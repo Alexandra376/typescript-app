@@ -1,17 +1,17 @@
 import Button from "../../components/Button/Button";
 import {ReactElement, useEffect, useState} from "react";
-import {Lesson10} from './types';
 import {Container, ButtonWrapper, ButtonsBlock, TextBlock, Title} from "./style";
 import Loader from "../../components/Loader/Loader";
+import "./types";
+import { v4 } from 'uuid';
 
 function Lesson_10(): ReactElement {
-    const [facts, setFacts] = useState<Lesson10>();
-    const [visibility, setVisibility] = useState<boolean>(false);
+    const [facts, setFacts] = useState<string[]>([]);
     const [loading, setLoading] = useState<boolean>(false);
 
     const getCatsFacts = async () => {
-        setLoading(true);
         try {
+            setLoading(true);
             const response = await fetch('https://catfact.ninja/fact');
             const result = await response.json();
             if (!response.ok) {
@@ -19,29 +19,37 @@ function Lesson_10(): ReactElement {
                     response: result
                 });
             } else {
-                setFacts(result);
+                setFacts((prevValue) => [...prevValue, result.fact]);
                 setLoading(false);
             }
         } catch (error) {
             console.error(error)
+        } finally {
+            setLoading(false);
         }
     }
+
+    const handleDeleteFacts = () => setFacts([])
+
+    const isVisibleData = !facts.length /// почему мы на false делаем видимым элемент?
+
 
     useEffect(() => {
         getCatsFacts();
     }, []);
 
+    const catFactsElements = facts.map((fact) => <Title key={v4()}>{fact}</Title>);
+    /////// почему это не компонент если он возвращает JSX ????
+
     return (
         <ButtonWrapper>
             <Container>
                 <ButtonsBlock>
-                    <Button name='Get more info' type='submit' handlerButton={() => setVisibility(true)}/>
-                    <Button name='Delete all data' type='submit' handlerButton={() => setVisibility(false)}></Button>
+                    <Button name='Get more info' type='submit' handlerButton={getCatsFacts} />
+                    <Button name='Delete all data' type='submit' handlerButton={handleDeleteFacts}  disabled={isVisibleData}/>
                 </ButtonsBlock>
-                <TextBlock visibility={visibility}>
-                    <Title>{facts?.fact}</Title>
-                </TextBlock>
-                <Loader loading={loading}></Loader>
+                {loading ? <Loader loading={loading}/> :
+                    <TextBlock visible={isVisibleData}>{catFactsElements}</TextBlock>}
             </Container>
         </ButtonWrapper>
     )

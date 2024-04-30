@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export interface LoaderProps {
-    loading?: boolean;
+    loading: boolean;
 }
 
 export const LoaderContainer = styled('span')<LoaderProps>`

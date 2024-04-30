@@ -1,20 +1,20 @@
 import styled from "@emotion/styled";
 
 interface TextBlockProps {
-    visibility: boolean;
+    visible?: boolean;
 }
 
 export const ButtonWrapper = styled.div`
     display: flex;
-    align-items: center;
     margin: 0 auto;
-    max-width: 400px;
 `
 
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 400px;
+    margin: 20px 0 0 0;
 `
 
 export const ButtonsBlock = styled.div`
@@ -23,14 +23,16 @@ export const ButtonsBlock = styled.div`
 `
 
 export const TextBlock = styled.div<TextBlockProps>`
-    border: 1px solid blue;
     width: 100%;
-    height: 50px;
-    padding: 10px;
+    height: 350px;
     overflow: auto;
     border-radius: 2px;
-    display: ${({visibility}) => visibility ? "block" : "none"};
+    display: ${({visible}) => visible ? "none" : "flex"};
+    flex-direction: column;
+    row-gap: 10px
 `
 
 export const Title = styled.p`
+    border: 1px solid blue;
+    padding: 10px;
 `

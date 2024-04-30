@@ -1,28 +1,43 @@
-import "./style.css";
 import Input from "components/Input/Input";
 import Button from "components/Button/Button";
-import {InputContainerStyle, LoginFormNameStyle, LoginFormStyle} from "./style";
+import {InputContainerStyle, LoginFormNameStyle, LoginFormComponent} from "./style";
+import {useFormik} from "formik";
+import React from "react";
+import {LoginFormProps} from "./types";
 
 function LoginForm() {
+    const formik= useFormik({
+        initialValues: {
+            email: "",
+            password: "",
+        } as LoginFormProps,
+        onSubmit: (values: LoginFormProps) => {
+            console.log(values);
+        },
+    });
     return (
-        <LoginFormStyle>
+        <LoginFormComponent onSubmit={formik.handleSubmit}>
             <LoginFormNameStyle>Login form</LoginFormNameStyle>
             <InputContainerStyle>
                 <Input
-                    name="login-email"
+                    name="email"
                     type="email"
                     placeholder="Enter your email"
                     label="Email"
+                    getValue={formik.handleChange}
+                    value={formik.values.email}
                 />
                 <Input
-                    name="login-password"
+                    name="password"
                     type="password"
                     placeholder="Enter your password"
                     label="Password"
+                    getValue={formik.handleChange}
+                    value={formik.values.password}
                 />
             </InputContainerStyle>
             <Button type="submit" name="Login" />
-        </LoginFormStyle>
+        </LoginFormComponent>
     );
 }
 
