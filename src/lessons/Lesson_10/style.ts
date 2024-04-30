@@ -32,5 +32,5 @@ export const TextBlock = styled.div<TextBlockProps>`
     display: ${({visibility}) => visibility ? "block" : "none"};
 `
 
-export const Facts = styled.div`
+export const Title = styled.p`
 `

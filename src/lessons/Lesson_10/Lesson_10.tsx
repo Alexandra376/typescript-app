@@ -1,7 +1,7 @@
 import Button from "../../components/Button/Button";
 import {ReactElement, useEffect, useState} from "react";
 import {Lesson10} from './types';
-import {Container, ButtonWrapper, ButtonsBlock, TextBlock} from "./style";
+import {Container, ButtonWrapper, ButtonsBlock, TextBlock, Title} from "./style";
 import Loader from "../../components/Loader/Loader";
 
 function Lesson_10(): ReactElement {
@@ -39,7 +39,7 @@ function Lesson_10(): ReactElement {
                     <Button name='Delete all data' type='submit' handlerButton={() => setVisibility(false)}></Button>
                 </ButtonsBlock>
                 <TextBlock visibility={visibility}>
-                    <p>{facts?.fact}</p>
+                    <Title>{facts?.fact}</Title>
                 </TextBlock>
                 <Loader loading={loading}></Loader>
             </Container>
