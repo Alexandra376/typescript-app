@@ -1,4 +1,4 @@
-import EmployeeForm from "../../components/EmployeeForm/EmployeeForm";
+import EmployeeForm from "components/EmployeeForm/EmployeeForm";
 
 function Homework_11() {
     return(
