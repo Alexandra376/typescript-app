@@ -5,6 +5,8 @@ export interface InputProps {
     type?: string;
     placeholder: string;
     label: string;
-    getValue?: (event: ChangeEvent<HTMLInputElement>) => void;
-    value: string;
+    getValue: (event: ChangeEvent<HTMLInputElement>) => void;
+    value?: string;
+    isRowReverse?: boolean;
+    isChecked?: boolean;
 }
