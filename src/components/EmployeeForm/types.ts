@@ -1,4 +1,4 @@
-export interface LoginFormProps {
+export interface EmployeeFormProps {
     name: string,
     surname: string,
     age: string,

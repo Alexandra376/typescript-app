@@ -2,17 +2,17 @@ import Input from "components/Input/Input";
 import Button from "components/Button/Button";
 import {EmployeeFormStyle, InputsContainerStyle} from "./style";
 import {useFormik} from "formik";
-import {LoginFormProps} from "./types";
+import {EmployeeFormProps} from "./types";
 
 function EmployeeForm() {
-    const formik = useFormik<LoginFormProps>({
+    const formik = useFormik({
         initialValues: {
             name: "",
             surname: "",
             age: "",
             position: "",
             rulesOfUsage: false,
-        },
+        } as EmployeeFormProps,
         onSubmit: (values) => {
             console.log(values);
         }
