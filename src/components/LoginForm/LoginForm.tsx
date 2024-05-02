@@ -3,14 +3,22 @@ import Button from "components/Button/Button";
 import {InputContainerStyle, LoginFormNameStyle, LoginFormComponent} from "./style";
 import {useFormik} from "formik";
 import React from "react";
-import {LoginFormProps} from "./types";
+import {LOGIN_FIELD_NAMES, LoginFormProps} from "./types";
+import * as Yup from "yup";
 
 function LoginForm() {
+    const shema = Yup.object().shape({
+        [LOGIN_FIELD_NAMES.EMAIL]: Yup.string().required('Field email required'),
+        [LOGIN_FIELD_NAMES.PASSWORD]: Yup.string().required('Field password required'),
+    })
     const formik= useFormik({
         initialValues: {
-            email: "",
-            password: "",
+            [LOGIN_FIELD_NAMES.EMAIL]: "",
+            [LOGIN_FIELD_NAMES.PASSWORD]: "",
         } as LoginFormProps,
+        validationSchema: shema,
+        validateOnChange: false,
+        validateOnMount: false,
         onSubmit: (values: LoginFormProps) => {
             console.log(values);
         },
@@ -20,20 +28,22 @@ function LoginForm() {
             <LoginFormNameStyle>Login form</LoginFormNameStyle>
             <InputContainerStyle>
                 <Input
-                    name="email"
+                    name={LOGIN_FIELD_NAMES.EMAIL}
                     type="email"
                     placeholder="Enter your email"
                     label="Email"
                     getValue={formik.handleChange}
-                    value={formik.values.email}
+                    value={formik.values[LOGIN_FIELD_NAMES.EMAIL]}
+                    error={formik.errors[LOGIN_FIELD_NAMES.EMAIL]}
                 />
                 <Input
-                    name="password"
+                    name={LOGIN_FIELD_NAMES.PASSWORD}
                     type="password"
                     placeholder="Enter your password"
                     label="Password"
                     getValue={formik.handleChange}
-                    value={formik.values.password}
+                    value={formik.values[LOGIN_FIELD_NAMES.PASSWORD]}
+                    error={formik.errors[LOGIN_FIELD_NAMES.PASSWORD]}
                 />
             </InputContainerStyle>
             <Button type="submit" name="Login" />

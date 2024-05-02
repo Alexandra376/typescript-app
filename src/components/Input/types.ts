@@ -9,4 +9,5 @@ export interface InputProps {
     value?: string;
     isRowReverse?: boolean;
     isChecked?: boolean;
+    error?: string | undefined;
 }

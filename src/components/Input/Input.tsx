@@ -1,7 +1,7 @@
 import {InputProps } from "./types";
-import {InputContainerStyle, InputLabelStyle, InputStyle} from "./style";
+import {ErrorMessage, InputContainerStyle, InputLabelStyle, InputStyle} from "./style";
 
-function Input({ name, type = "text", label, placeholder='Output', getValue, value, isRowReverse=false, isChecked } :InputProps) {
+function Input({ name, type = "text", label, placeholder='Output', getValue, value, isRowReverse=false, isChecked, error } :InputProps) {
     return (
         <InputContainerStyle isRowReverse={isRowReverse}>
             <InputLabelStyle>{label}</InputLabelStyle>
@@ -13,6 +13,7 @@ function Input({ name, type = "text", label, placeholder='Output', getValue, val
                 value={value}
                 checked={isChecked}
             />
+            <ErrorMessage>{error}</ErrorMessage>
         </InputContainerStyle>
     );
 }
