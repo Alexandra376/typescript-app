@@ -1,8 +1,13 @@
 import styled from "@emotion/styled";
 
-export const InputContainerStyle = styled.div`
+interface InputProps {
+    isRowReverse: boolean;
+}
+
+export const InputContainerStyle = styled.div<InputProps>`
     display: flex;
-    flex-direction: column;
+    flex-direction: ${({isRowReverse}) => isRowReverse ? "row-reverse" : "column"};
+    justify-content: ${({isRowReverse}) => isRowReverse ? "start" : "flex-start"};
     gap: 4px;
     width: 100%;
     height: fit-content;
@@ -14,8 +19,8 @@ export const InputLabelStyle = styled.label`
 `
 
 export const InputStyle = styled.input`
-    width: 100%;
-    height: 50px;
+    width: auto;
+    height: auto;
     padding: 12px;
     outline: none;
     border: 1px solid black;
