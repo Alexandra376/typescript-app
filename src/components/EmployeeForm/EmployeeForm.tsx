@@ -4,7 +4,6 @@ import {EmployeeFormStyle, InputsContainerStyle} from "./style";
 import {useFormik} from "formik";
 import {EmployeeFormProps, LOGIN_FIELD_NAMES} from "./types";
 import * as Yup from "yup";
-import {number} from "yup";
 
 function EmployeeForm() {
     const shema = Yup.object().shape({
@@ -18,7 +17,7 @@ function EmployeeForm() {
         [LOGIN_FIELD_NAMES.AGE]: Yup.number()
             .required('Field age required')
             .min(2, 'Minimum of 1 characters required')
-            .max(3, 'Maximum of 3 characters allowed'),
+            .test ('check length', 'Max 3 symbols', value => String(value).length <= 3),
         [LOGIN_FIELD_NAMES.POSITION]: Yup.string()
             .required('Field position required')
             .max(30, 'Maximum of 30 characters allowed'),
@@ -27,11 +26,11 @@ function EmployeeForm() {
     })
     const formik = useFormik({
         initialValues: {
-            [LOGIN_FIELD_NAMES.NAME]: "",
-            [LOGIN_FIELD_NAMES.SURNAME]: "",
-            [LOGIN_FIELD_NAMES.AGE]: number,
-            [LOGIN_FIELD_NAMES.POSITION]: "",
-            [LOGIN_FIELD_NAMES.RULESOFUSAGE]: false,
+            [LOGIN_FIELD_NAMES.NAME]: Yup.string(),
+            [LOGIN_FIELD_NAMES.SURNAME]: Yup.string(),
+            [LOGIN_FIELD_NAMES.AGE]: Yup.number(),
+            [LOGIN_FIELD_NAMES.POSITION]: Yup.string(),
+            [LOGIN_FIELD_NAMES.RULESOFUSAGE]: Yup.boolean(),
         } as unknown as EmployeeFormProps,
         validationSchema: shema,
         validateOnBlur: true,
