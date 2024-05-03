@@ -8,32 +8,29 @@ import * as Yup from "yup";
 function EmployeeForm() {
     const shema = Yup.object().shape({
         [LOGIN_FIELD_NAMES.NAME]: Yup.string()
-            .required('Field email required')
+            .required('Field name required')
             .min(2, 'Minimum of 2 characters required')
             .max(50, 'Maximum of 50 characters allowed'),
         [LOGIN_FIELD_NAMES.SURNAME]: Yup.string()
             .required('Field surname required')
             .max(15, 'Maximum of 15 characters allowed'),
         [LOGIN_FIELD_NAMES.AGE]: Yup.number()
-            .required('Field age required')
-            .min(2, 'Minimum of 1 characters required')
-            .test ('check length', 'Max 3 symbols', value => String(value).length <= 3),
-        [LOGIN_FIELD_NAMES.POSITION]: Yup.string()
-            .required('Field position required')
-            .max(30, 'Maximum of 30 characters allowed'),
-        [LOGIN_FIELD_NAMES.RULESOFUSAGE]: Yup.boolean()
-            .required('Field rulesOfUsage required')
+            .typeError('Age must be number')
+            .required('Required field')
+            .test('check length', 'Max 3 symbols', value => String(value).length <= 3),
+        [LOGIN_FIELD_NAMES.POSITION]: Yup.string(),
+        [LOGIN_FIELD_NAMES.RULESOFUSAGE]: Yup.boolean().oneOf([true], 'Accept agreement')
     })
     const formik = useFormik({
         initialValues: {
-            [LOGIN_FIELD_NAMES.NAME]: Yup.string(),
-            [LOGIN_FIELD_NAMES.SURNAME]: Yup.string(),
-            [LOGIN_FIELD_NAMES.AGE]: Yup.number(),
-            [LOGIN_FIELD_NAMES.POSITION]: Yup.string(),
-            [LOGIN_FIELD_NAMES.RULESOFUSAGE]: Yup.boolean(),
+            [LOGIN_FIELD_NAMES.NAME]: '',
+            [LOGIN_FIELD_NAMES.SURNAME]: '',
+            [LOGIN_FIELD_NAMES.AGE]: '',
+            [LOGIN_FIELD_NAMES.POSITION]: '',
+            [LOGIN_FIELD_NAMES.RULESOFUSAGE]:'',
         } as unknown as EmployeeFormProps,
         validationSchema: shema,
-        validateOnBlur: true,
+        validateOnChange: false,
         onSubmit: (values) => {
             console.log(values);
         }
