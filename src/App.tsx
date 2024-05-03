@@ -6,7 +6,7 @@ import GlobalStyles from "styles/GlobalStyles";
 import React from "react";
 import Layout from "./components/Layout/Layout";
 // import Lesson_12 from "./lessons/Lesson_12/Lesson_12";
-// import Homework_11 from "./homeworks/Homework_11/Homework_11";
+import Homework_11 from "./homeworks/Homework_11/Homework_11";
 // import Lesson_11 from "./lessons/Lesson_11/Lesson_11";
 // import Homework_09 from "./homeworks/Homework_09/Homework_09";
 // import Lesson_09 from "lessons/Lesson_09/Lesson_09";
@@ -26,7 +26,7 @@ function App() {
           {/*<Homework_09/>*/}
           {/*<Lesson_10/>*/}
           {/*<Lesson_11/>*/}
-          {/*<Homework_11/>*/}
+          <Homework_11/>
           {/*<Lesson_12/>*/}
       </>
   )
