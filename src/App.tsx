@@ -15,6 +15,10 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import About from "pages/About/About";
 import Home from "pages/Home/Home";
 import Users from "./pages/Users/Users";
+import Clients from "./pages/Clients/Clients";
+import Instagram from "./pages/Clients/Instagram/Instagram";
+import Facebook from "./pages/Clients/Facebook/Facebook";
+import Vkontakte from "./pages/Clients/Vkontakte/Vkontakte";
 
 function App() {
   return (
@@ -25,6 +29,10 @@ function App() {
                 <Route path='/' element={<Home/>}/>
                 <Route path='/about' element={<About/>}/>
                 <Route path='/users' element={<Users/>}/>
+                <Route path='/clients' element={<Clients/>}/>
+                <Route path='/clients/instagram' element={<Instagram/>}/>
+                <Route path='/clients/facebook' element={<Facebook/>}/>
+                <Route path='/clients/vkontakte' element={<Vkontakte/>}/>
                 <Route path='*' element='Page Not Found'/>
               </Routes>
           </Layout>
