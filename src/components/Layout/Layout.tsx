@@ -6,7 +6,8 @@ import {
     Main,
     HeaderLogo,
     StyledNavLink,
-    NavContainer
+    NavContainer,
+    Link
 } from "./style"
 import {LayoutProps} from "./types";
 import React from "react";
@@ -16,7 +17,9 @@ function Layout({children}: LayoutProps) {
         <LayoutComponent>
             <Header>
                 <HeaderLogoContainer>
+                    <Link href="/">
                     <HeaderLogo />
+                    </Link>
                 </HeaderLogoContainer>
                 <NavContainer>
                     <StyledNavLink
@@ -33,6 +36,11 @@ function Layout({children}: LayoutProps) {
                         to='/users'
                         style={({ isActive }) => ({ textDecoration: isActive ? 'underline' : 'none' })}>
                         Users
+                    </StyledNavLink>
+                    <StyledNavLink
+                        to='/clients'
+                        style={({ isActive }) => ({ textDecoration: isActive ? 'underline' : 'none' })}>
+                        Clients
                     </StyledNavLink>
                 </NavContainer>
             </Header>

@@ -1,4 +1,4 @@
-import Button from "../../components/Button/Button";
+import Button from "components/Button/Button";
 import {UserWrapper, UserTitle} from "./style";
 import {useNavigate, useLocation} from "react-router-dom";
 import {useEffect} from "react";
