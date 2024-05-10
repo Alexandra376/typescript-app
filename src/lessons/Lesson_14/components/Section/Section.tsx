@@ -1,15 +1,13 @@
-import { MainSection } from "./style";
-import {SectionTitle} from "../MainContent/style";
-import {ContentComponent} from "../Content/style";
+import Content from "../Content/Content";
+import {SectionComponent, SectionTitle} from './style';
 
 function Section() {
-    return(
-        <MainSection>
-            <SectionTitle>
-                <ContentComponent/>
-            </SectionTitle>
-        </MainSection>
+    return (
+        <SectionComponent>
+            <SectionTitle>Section block</SectionTitle>
+            <Content />
+        </SectionComponent>
     )
 }
 
-export default Section;
+export default Section

@@ -1,13 +1,15 @@
 import styled from "@emotion/styled";
 
 export const ContentComponent = styled.div`
-    align-items: center;
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    align-items: center;
     gap: 20px;
-    background: red;
+    padding: 20px;
+    background: #E0E841;
 `
 
-export const DataTitle = styled.div`
+export const DataItem = styled.div`
+    font-size: 20px;
+    color: #E87641;
 `

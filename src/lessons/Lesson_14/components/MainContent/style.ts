@@ -1,14 +1,15 @@
 import styled from "@emotion/styled";
 
-export const MainContent = styled.div`
-    width: 100px;
-    height: 100px;
-    background: pink;
-    align-items: center;
+export const MainContentComponent = styled.div`
     display: flex;
     flex-direction: column;
+    align-items: center;
+    width: 700px;
+    height: 400px;
+    padding: 40px;
+    background: #E88EE2;
 `
-
-export const SectionTitle = styled.div``
-
-export const MainTitle = styled.div``
+export const MainTitle = styled.div`
+    font-size: 30px;
+    color: #581953;
+`

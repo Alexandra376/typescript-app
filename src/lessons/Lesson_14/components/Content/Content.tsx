@@ -1,13 +1,17 @@
-import {ContentComponent, DataTitle} from "./style";
+import { useContext } from "react";
+import {ContentComponent, DataItem} from "./style";
+import { MainContext } from "../MainContent/MainContent";
 
 function Content() {
-    return(
+    const userData = useContext(MainContext);
+
+    return (
         <ContentComponent>
-            <DataTitle>First name: {}</DataTitle>
-            <DataTitle>Last name: {}</DataTitle>
-            <DataTitle>Age name: {}</DataTitle>
+            <DataItem>First Name: {userData.firstName}</DataItem>
+            <DataItem>Last Name: {userData.lastName}</DataItem>
+            <DataItem>Age: {userData.age}</DataItem>
         </ContentComponent>
     )
 }
 
-export default Content;
+export default Content

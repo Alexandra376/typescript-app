@@ -1,10 +1,10 @@
 import {Lesson14Component} from "./style";
-import {MainContentComponent} from "./components/MainContent/style";
+import MainContent from "./components/MainContent/MainContent";
 
 function Lesson_14 () {
     return(
         <Lesson14Component>
-            <MainContentComponent/>
+            <MainContent/>
         </Lesson14Component>
     )
 }
