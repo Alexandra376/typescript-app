@@ -11,7 +11,6 @@ export const LabelStyle = styled.label``
 export const TextareaStyle = styled.textarea`
     width: 150px;
     height: 40px;
-    background: aquamarine;
     font-size: 15px;
     border-radius: 5px;
     font-family: SansSerif, serif;
