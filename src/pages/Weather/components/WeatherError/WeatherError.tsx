@@ -1,16 +1,13 @@
-import {WeatherContainer, WeatherDegree, WeatherWrapper} from "../WeatherInfo/style";
-import {ErrorDisplay} from "./style";
+import { WeatherErrorProps } from "./types";
+import { ApiError, ErrorMessage, WeatherErrorWrapper } from "./style";
 
-function WeatherError() {
-    return(
-        <WeatherWrapper>
-            <WeatherContainer visible={false}>
-                <WeatherDegree>
-                    <ErrorDisplay/>
-                </WeatherDegree>
-            </WeatherContainer>
-        </WeatherWrapper>
-    )
+function WeatherError({ error }: WeatherErrorProps) {
+  return (
+    <WeatherErrorWrapper>
+      <ApiError>{`API Error ${error.code}`}</ApiError>
+      <ErrorMessage>{error.message}</ErrorMessage>
+    </WeatherErrorWrapper>
+  );
 }
 
 export default WeatherError;

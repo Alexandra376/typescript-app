@@ -1,76 +1,46 @@
 import styled from "@emotion/styled";
-import {Temperature} from "assets/images";
 
-interface WeatherInfoProps {
-    visible: boolean;
-}
+export const WeatherInfoWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  height: fit-content;
+  padding: 28px 36px;
+  background: linear-gradient(
+    134deg,
+    rgba(47, 72, 111, 0.62) 5.78%,
+    rgba(11, 27, 52, 0.62) 96.58%
+  );
+  backdrop-filter: blur(4px);
+  border-radius: 20px;
+`;
 
-export const WeatherWrapper = styled.div`
+export const WeatherInfoContainer = styled.div`
+    display: flex;
     width: 100%;
-    height: 129px;
-    margin: 0 auto;
+`;
+
+export const TempWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    display: flex;
-    position: relative;
-`
-
-export const WeatherContainer = styled.div<WeatherInfoProps>`
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-    display: ${({visible}) => visible ? "none" : "flex"};
-`
-
-export const WeatherDegree = styled.div`
-    background: #2f486fc2;
-    width: 709px;
-    border-radius: 18px;
-    height: 129px;
-    padding: 16px 0 16px 36px;
+    align-items: center;
     gap: 6px;
-    display: flex;
-    flex-direction: column;
-`
-
-export const Degree = styled.h2`
+    width: fit-content;
     font-size: 57px;
-    font-weight: 500;
-`
+    color: white;
+`;
 
-export const City = styled.p`
+export const CityName = styled.p`
     font-size: 18px;
-`
+`;
 
-export const IconWeather = styled.img``
-
-export const WeatherFeelsLike = styled.div`
-    width: 223px; 
-    background: #2f486fc2;
-    height: 141px;
-    border-radius: 18px;
+export const IconWrapper = styled.div`
     display: flex;
-    padding: 8px 0 55px 30px;
-    flex-direction: column;
-    gap: 8px;
-`
+    justify-content: center;
+    flex: 1;
+`;
 
-export const TemperatureIconContainer = styled.div`
-    display: flex;
-`
-
-export const IconTemperature = styled.img``
-
-export const Title = styled.h4`
-    color: #ffffff78;
-    font-size: 12px;
-    font-weight: 400;
-`
-
-export const DegreeContainer = styled.div``
-
-export const FeelsLikeDegree = styled.p`
-    font-size: 42px;
-    font-weight: 500;
-`
-
-IconTemperature.defaultProps = {src: Temperature};
+export const WeatherImg = styled.img``;

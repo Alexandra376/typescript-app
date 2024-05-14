@@ -1,36 +1,27 @@
+import { WeatherInfoProps } from "./types";
 import {
-    TemperatureIconContainer,
-    City,
-    WeatherContainer,
-    WeatherFeelsLike,
-    Degree, WeatherDegree, FeelsLikeDegree,
-    IconTemperature,
-    WeatherWrapper,
-    Title, DegreeContainer,
+    CityName,
+    IconWrapper,
+    TempWrapper,
+    WeatherInfoContainer,
+    WeatherInfoWrapper,
+    WeatherImg,
 } from "./style";
-import {WeatherInfoProps} from "./types";
 
-function WeatherInfo ({name, main, weatherIcon, visible=true}: WeatherInfoProps) {
-    return(
-        <WeatherWrapper>
-            <WeatherContainer visible={visible}>
-                <WeatherDegree>
-                    <Degree>{main ? main.temp : ""}</Degree>
-                    <City>{name}</City>
-                        {weatherIcon}
-                </WeatherDegree>
-                <WeatherFeelsLike>
-                    <TemperatureIconContainer>
-                        <IconTemperature/>
-                        <Title>FEELS LIKE</Title>
-                    </TemperatureIconContainer>
-                    <DegreeContainer>
-                        <FeelsLikeDegree>{main ? main.feels_like : ""}</FeelsLikeDegree>
-                    </DegreeContainer>
-                </WeatherFeelsLike>
-            </WeatherContainer>
-        </WeatherWrapper>
-    )
+function WeatherInfo({ temp, icon, cityName }: WeatherInfoProps) {
+    return (
+      <WeatherInfoWrapper>
+          <WeatherInfoContainer>
+              <TempWrapper>
+                  {temp}
+                  <CityName>{cityName}</CityName>
+              </TempWrapper>
+              <IconWrapper>
+                  <WeatherImg src={icon} alt="Weather Icon" />
+              </IconWrapper>
+          </WeatherInfoContainer>
+      </WeatherInfoWrapper>
+    );
 }
 
 export default WeatherInfo;

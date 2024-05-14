@@ -1,78 +1,96 @@
-import {Header, HeaderTitle, SearchContainer, WeatherIcon, WeatherWrapper} from "./style";
-import Button from "components/Button/Button";
+import { ChangeEvent, useState } from "react";
+
 import Input from "components/Input/Input";
-import {ButtonContainer} from "../Clients/Facebook/style";
+import Button from "components/Button/Button";
+import {
+    WeatherWrapper,
+    Header,
+    Main,
+    WeatherForm,
+    WeatherButtonWrapper,
+    InputButtonWrapper,
+} from "./style";
+import { WeatherErrorData, WeatherInfoData } from "./types";
 import WeatherInfo from "./components/WeatherInfo/WeatherInfo";
-import {useState} from "react";
+import Spinner from "components/Spinner/Spinner";
+import WeatherError from "./components/WeatherError/WeatherError"
 
 function Weather() {
-    const [loading, setLoading] = useState<boolean>(false);
-    const [cityName, setCityName] = useState<string>("");
-    const [weatherData, setWeatherData] = useState<any>({})
-    const APIKEY='655081d01009e61fd51f785f145b376b'
+    //Контролируем Input
+    const [city, setCity] = useState<string>('');
+    // стейт для хранения необходимых данных погоде
+    const [weatherInfo, setWeatherInfo] = useState<WeatherInfoData | undefined>(undefined);
+    // стейт для хранения данных ошибке
+    const [weatherError, setWeatherError] = useState<WeatherErrorData | undefined>(undefined);
+    //стейт, который контролирует индикатор загрузки
+    const [isLoading, setIsLoading] = useState<boolean>(false)
 
-    const { name, main } = weatherData;
+    const APP_ID: string = "eea75aae6dbe00233ac1efadf2d99a2a";
+    const URL: string = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APP_ID}`;
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setCityName(e.target.value);
-    }
+    const getWeatherInfo = async () => {
+        // Здесь проверяем пустоту поля
+        if (city.trim().length === 0) {
+            return alert('Enter city name')
+        }
 
-    const getWeather = async () => {
-        try {
-            setLoading(true);
-            if (cityName.length === 0) return
-            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${APIKEY}`);
-            const result = await response.json();
-            if (!response.ok) {
-                throw Object.assign(new Error('API Error'), {
-                    response: result
-                })
-            } else {
-                setWeatherData(result)
-                setLoading(false);
-            }
-        } catch (error) {
-            console.error(error)
-        } finally {
-            setLoading(false);
+        //Очищаем стейты с предыдущей информацией о погоде или ошибке
+        setWeatherInfo(undefined);
+        setWeatherError(undefined)
+        setIsLoading(true)
+
+        const response = await fetch(URL);
+        const data = await response.json();
+
+        if (response.ok) {
+            setIsLoading(false);
+            setWeatherInfo({
+                temp: `${Math.round(data?.main?.temp - 273.15)}°C`,
+                icon: `http://openweathermap.org/img/w/${data.weather[0].icon}.png`,
+                cityName: `${data?.name}`
+            })
+        } else {
+            setIsLoading(false);
+            //Логика работы с ошибкой
+            setWeatherError({
+                code: data?.cod, message: data?.message
+            })
         }
     }
 
-    const WeatherIconComponent = () => {
-        return (
-            weatherData && weatherData.weather ? (
-                <WeatherIcon
-                    src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png`}
-                    alt='weather icon'
-                    className='weather-icon'/>
-            ) : (
-                <p>No weather data available</p>
-            )
-        );
-    }
-
-
-    const handleSearch = () => {
-        getWeather();
+    //Контролируем Input
+    const onChangeCity = (event: ChangeEvent<HTMLInputElement>) => {
+        setCity(event.target.value)
     }
 
     return (
-        <WeatherWrapper>
-            <Header>
-                <HeaderTitle>
-                Weather App
-                </HeaderTitle>
-            </Header>
-            <SearchContainer>
-                <Input placeholder="Colorado" value={cityName} getValue={handleInputChange}/>
-                <ButtonContainer>
-                    <Button name="Search" handlerButton={handleSearch}/>
-                </ButtonContainer>
-            </SearchContainer>
-            <WeatherInfo name={name} main={main} weatherIcon={<WeatherIconComponent/>} visible/>
-            {/*<WeatherError/>*/}
-        </WeatherWrapper>
-    )
+      <WeatherWrapper>
+          <Header>Weather App</Header>
+          <Main>
+              <WeatherForm>
+                  <InputButtonWrapper>
+                      <Input
+                        placeholder="Enter city name"
+                        getValue={onChangeCity}
+                        value={city}
+                        name="city"
+                      />
+                      <WeatherButtonWrapper>
+                          <Button name="Search" handlerButton={getWeatherInfo} />
+                      </WeatherButtonWrapper>
+                  </InputButtonWrapper>
+                  {isLoading && <Spinner />}
+                  {!!weatherInfo && (
+                    <WeatherInfo
+                      temp={weatherInfo?.temp}
+                      icon={weatherInfo?.icon}
+                      cityName={weatherInfo?.cityName}
+                    />)}
+                  {!!weatherError && (<WeatherError error={weatherError} />)}
+              </WeatherForm>
+          </Main>
+      </WeatherWrapper>
+    );
 }
 
 export default Weather;
