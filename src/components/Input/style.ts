@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 interface InputProps {
-    isRowReverse: boolean;
+    isRowReverse?: boolean;
 }
 
 export const InputContainerStyle = styled.div<InputProps>`
@@ -18,18 +18,20 @@ export const InputLabelStyle = styled.label`
     color: #6f6f6f;
 `
 
-export const InputStyle = styled.input`
+export const InputStyle = styled.input<InputProps>`
     width: auto;
     height: auto;
-    padding: 12px;
+    padding: 12px 20px;
     outline: none;
-    border: 1px solid black;
-    border-radius: 4px;
     font-size: 16px;
+    border-radius: 40px;
+    border: 1px solid white;
+    color: #FFFFFF;
+    background-color: #ffffff59;
 
     ::placeholder {
-        color: #6f6f6f;
-    }
+    color: #FFFFFF;
+}
 `
 
 export const ErrorMessage = styled.div`

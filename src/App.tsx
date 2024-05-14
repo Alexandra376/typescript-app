@@ -7,7 +7,8 @@ import React from "react";
 // import Layout from "./components/Layout/Layout";
 // import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import {BrowserRouter} from 'react-router-dom';
-import Homework_14 from "./homeworks/Homework_14/Homework_14";
+import Weather from "./pages/Weather/Weather";
+// import Homework_14 from "./homeworks/Homework_14/Homework_14";
 // import Lesson_12 from "./lessons/Lesson_12/Lesson_12";
 // import Homework_11 from "./homeworks/Homework_11/Homework_11";
 // import Lesson_11 from "./lessons/Lesson_11/Lesson_11";
@@ -53,7 +54,8 @@ function App() {
           {/*<Homework_11/>*/}
           {/*<Lesson_12/>*/}
           {/*<Lesson_14/>*/}
-          <Homework_14/>
+          {/*<Homework_14/>*/}
+          <Weather/>
       </BrowserRouter>
   )
 }
